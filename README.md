@@ -1,1 +1,1 @@
-# odin-tictactoe
+# Tic-Tac-Toe Game
