@@ -2,3 +2,30 @@
   font-family: "patrick";
   src: url(Patrick_Hand/PatrickHand-Regular.ttf);
 }
+
+:root {
+  font-family: "patrick";
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.cell {
+  border: 2px solid black;
+  box-sizing: border-box;
+}
