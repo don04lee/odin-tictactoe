@@ -43,6 +43,8 @@
 
 .popup {
   display: flex;
+  flex-direction: column;
+  gap: 5vh;
   position: absolute;
   width: 70vw;
   height: 30vh;
@@ -60,4 +62,18 @@
   visibility: visible;
   opacity: 100%;
   transition: opacity 0.5s;
+}
+
+.resetButton {
+  font-size: 100%;
+  border: 2px solid black;
+  width: 20vw;
+  height: 5vh;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.resetButton:hover {
+  background-color: black;
+  color: white;
 }

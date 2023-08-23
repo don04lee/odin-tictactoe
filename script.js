@@ -1,6 +1,6 @@
 const gameBoard = (() => {
 
-  const board = ["", "", "", "", "", "", "", "", ""];
+  let board = ["", "", "", "", "", "", "", "", ""];
   const endLogic = [[0, 1, 2], 
                     [3, 4, 5], 
                     [6, 7, 8],
@@ -22,9 +22,8 @@ const gameBoard = (() => {
     board[cell.id] = player;
   }
 
-  function endBoard(cell) {
-    let curr = document.getElementById(cell);
-    curr.textContent = "LOL";
+  const resetBoard = () => {
+    board = ["", "", "", "", "", "", "", "", ""];
   }
 
   function checkStatus() {
@@ -51,7 +50,7 @@ const gameBoard = (() => {
     getBoard,
     getBoardIdx,
     setBoard,
-    endBoard,
+    resetBoard,
     checkStatus,
     checkEnd,
   }
@@ -62,6 +61,8 @@ const gameController = (() => {
   let player = true;
   const cells = document.querySelectorAll('.cell');
   const popup = document.getElementById('popup');
+  const endMessage = document.getElementById('endMessage');
+  const resetButton = document.getElementById('resetButton');
 
   cells.forEach(cell => {
     cell.addEventListener('click', function() {
@@ -86,18 +87,24 @@ const gameController = (() => {
     });
   })
 
+  resetButton.addEventListener('click', function() {
+    resetGame();
+  });
+
   function playerWin() {
+
     if(!player) {
-      popup.textContent = "Player 0 wins!";
+      endMessage.textContent = 'Player 0 Wins!';
     }
     else {
-      popup.textContent = "Player X wins!";
+      endMessage.textContent = 'Player X Wins!';
     }
+
     popup.classList.add('open-popup');
   }
 
   function drawGame() {
-    popup.textContent = "It\'s a draw!";
+    endMessage.textContent = 'It\'s a draw!';
     popup.classList.add('open-popup');
   }
 
@@ -105,12 +112,24 @@ const gameController = (() => {
     cells.forEach(cell => {
       cell.classList.add('disabled');
     })
+
+    popup.appendChild(resetButton);
+  }
+
+  function resetGame() {
+    gameBoard.resetBoard();
+    cells.forEach(cell => {
+      cell.classList.remove('disabled');
+      cell.textContent = "";
+    })
+    popup.classList.remove('open-popup');
   }
 
   return {
     playerWin,
     drawGame,
     endGame,
+    resetGame,
   }
 
 })();
