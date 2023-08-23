@@ -7,6 +7,25 @@
   font-family: "patrick";
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #f5d0fe;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 800px;
+  background-color: white;
+  border: solid black 2px;
+  border-radius: 25px;
+}
+
 .header {
   text-align: center;
   font-size: 100px;
@@ -51,6 +70,7 @@
   opacity: 50%;
   font-size: 30px;
   margin-top: 15vh;
+  border-radius: 25px;
   justify-content: center;
   align-items: center;
   background-color: white;
@@ -74,10 +94,6 @@
 }
 
 .resetButton:hover {
-  background-color: black;
+  background-color: #c026d3;
   color: white;
-}
-
-.hide {
-  visibility: hidden;
 }
