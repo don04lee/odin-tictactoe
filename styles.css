@@ -36,3 +36,28 @@
   align-items: center;
   font-size: 100px;
 }
+
+.disabled {
+  pointer-events: none;
+}
+
+.popup {
+  display: flex;
+  position: absolute;
+  width: 70vw;
+  height: 30vh;
+  opacity: 50%;
+  font-size: 30px;
+  margin-top: 15vh;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px black solid;
+  visibility: hidden;
+}
+
+.open-popup {
+  visibility: visible;
+  opacity: 100%;
+  transition: opacity 0.5s;
+}

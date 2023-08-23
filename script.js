@@ -61,6 +61,7 @@ const gameController = (() => {
 
   let player = true;
   const cells = document.querySelectorAll('.cell');
+  const popup = document.getElementById('popup');
 
   cells.forEach(cell => {
     cell.addEventListener('click', function() {
@@ -75,26 +76,40 @@ const gameController = (() => {
         gameBoard.setBoard(cell, 'X');
       }
       if(gameBoard.checkStatus()) {
-        if(!player) {
-          console.log("Player \'0\' wins!");
-        }
-        else {
-          console.log("Player \'X\' wins!");
-        }
+        endGame();
+        playerWin();
       }
       else if(gameBoard.checkEnd()) {
         endGame();
+        drawGame();
       }
     });
   })
 
-  function endGame() {
-    for(let i = 0; i < gameBoard.getBoard().length; i++) {
-      gameBoard.endBoard(i);
+  function playerWin() {
+    if(!player) {
+      popup.textContent = "Player 0 wins!";
     }
+    else {
+      popup.textContent = "Player X wins!";
+    }
+    popup.classList.add('open-popup');
+  }
+
+  function drawGame() {
+    popup.textContent = "It\'s a draw!";
+    popup.classList.add('open-popup');
+  }
+
+  function endGame() {
+    cells.forEach(cell => {
+      cell.classList.add('disabled');
+    })
   }
 
   return {
+    playerWin,
+    drawGame,
     endGame,
   }
 
