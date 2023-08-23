@@ -7,25 +7,32 @@
   font-family: "patrick";
 }
 
+.header {
+  text-align: center;
+  font-size: 100px;
+}
+
 .container {
   display: flex;
   justify-content: center;
 }
 
 .board {
-  margin-top: 100px;
   display: flex;
+  width: 700px;
+  margin-top: 20px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.row {
-  border: 2px solid black;
-  box-sizing: border-box;
-}
-
 .cell {
+  display: flex;
   border: 2px solid black;
   box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
 }
